@@ -73,7 +73,7 @@ public class PostsIndexController {
             }
         }
 
-        postsService.updateView(id); // views ++
+        postsService.updateView(id);
         model.addAttribute("posts", dto);
         return "posts/posts-read";
     }
