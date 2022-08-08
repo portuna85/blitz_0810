@@ -32,7 +32,6 @@ public class UserController {
     private final CustomValidators.NicknameValidator NicknameValidator;
     private final CustomValidators.UsernameValidator UsernameValidator;
 
-    /* 커스텀 유효성 검증을 위해 추가 */
     @InitBinder
     public void validatorBinder(WebDataBinder binder) {
         binder.addValidators(EmailValidator);
@@ -48,15 +47,12 @@ public class UserController {
     @PostMapping("/auth/joinProc")
     public String joinProc(@Valid UserDto.Request dto, Errors errors, Model model) {
         if (errors.hasErrors()) {
-             /* 회원가입 실패시 입력 데이터 값을 유지 */
             model.addAttribute("userDto", dto);
 
-            /* 유효성 통과 못한 필드와 메시지를 핸들링 */
             Map<String, String> validatorResult = userService.validateHandling(errors);
             for (String key : validatorResult.keySet()) {
                 model.addAttribute(key, validatorResult.get(key));
             }
-            /* 회원가입 페이지로 다시 리턴 */
             return "user/user-join";
         }
         userService.userJoin(dto);
@@ -72,7 +68,6 @@ public class UserController {
         return "user/user-login";
     }
 
-    /* Security에서 로그아웃은 기본적으로 POST지만, GET으로 우회 */
     @GetMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
@@ -83,7 +78,6 @@ public class UserController {
         return "redirect:/";
     }
 
-    /* 회원정보 수정 */
     @GetMapping("/modify")
     public String modify(@LoginUser UserDto.Response user, Model model) {
         if (user != null) {
