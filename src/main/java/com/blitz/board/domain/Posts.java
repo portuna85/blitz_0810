@@ -39,7 +39,6 @@ public class Posts extends BaseTimeEntity {
     @OrderBy("id asc") // 댓글 정렬
     private List<Comment> comments;
 
-    /* 게시글 수정 */
     public void update(String title, String content) {
         this.title = title;
         this.content = content;

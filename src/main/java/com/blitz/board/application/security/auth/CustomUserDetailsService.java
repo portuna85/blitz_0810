@@ -19,7 +19,6 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     private final HttpSession session;
 
-    /* username이 DB에 있는지 확인 */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username).orElseThrow(() ->
@@ -27,7 +26,6 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         session.setAttribute("user", new UserDto.Response(user));
 
-        /* 시큐리티 세션에 유저 정보 저장 */
         return new CustomUserDetails(user);
     }
 }

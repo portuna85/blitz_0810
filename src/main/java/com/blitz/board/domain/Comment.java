@@ -22,7 +22,7 @@ public class Comment {
     private Long id;
 
     @Column(columnDefinition = "TEXT", nullable = false)
-    private String comment; // 댓글 내용
+    private String comment;
 
     @Column(name = "created_date")
     @CreatedDate
