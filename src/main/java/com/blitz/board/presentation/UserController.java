@@ -45,7 +45,6 @@ public class UserController {
         return "user/user-join";
     }
 
-    /* 회원가입 */
     @PostMapping("/auth/joinProc")
     public String joinProc(@Valid UserDto.Request dto, Errors errors, Model model) {
         if (errors.hasErrors()) {
@@ -61,7 +60,7 @@ public class UserController {
             return "user/user-join";
         }
         userService.userJoin(dto);
-        return "redirect:auth/login";
+        return "redirect:/login";
     }
 
     @GetMapping("/auth/login")
