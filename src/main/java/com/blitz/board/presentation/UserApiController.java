@@ -30,7 +30,6 @@ public class UserApiController {
     public ResponseEntity<String> modify(@RequestBody UserDto.Request dto) {
         userService.modify(dto);
 
-        /* 변경된 세션 등록 */
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(dto.getUsername(), dto.getPassword()));
 

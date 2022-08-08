@@ -19,9 +19,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-/**
- * 화면 연결 Controller
- */
 @Slf4j
 @RequiredArgsConstructor
 @Controller

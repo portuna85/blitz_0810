@@ -12,8 +12,6 @@ import java.util.stream.Collectors;
  */
 public class PostsDto {
 
-
-    /** 게시글의 등록과 수정을 처리할 요청(Request) 클래스 */
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
@@ -28,7 +26,6 @@ public class PostsDto {
         private int view;
         private User user;
 
-        /* Dto -> Entity */
         public Posts toEntity() {
             Posts posts = Posts.builder()
                     .id(id)
@@ -59,7 +56,6 @@ public class PostsDto {
         private final Long userId;
         private final List<CommentDto.Response> comments;
 
-        /* Entity -> Dto*/
         public Response(Posts posts) {
             this.id = posts.getId();
             this.title = posts.getTitle();

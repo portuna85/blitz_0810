@@ -25,7 +25,7 @@ public class CommentDto {
         private String modifiedDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm"));
         private User user;
         private Posts posts;
-        /* Dto -> Entity */
+
         public Comment toEntity() {
             Comment comments = Comment.builder()
                     .id(id)
@@ -55,7 +55,7 @@ public class CommentDto {
         private String nickname;
         private Long userId;
         private Long postsId;
-        /* Entity -> Dto*/
+
         public Response(Comment comment) {
             this.id = comment.getId();
             this.comment = comment.getComment();

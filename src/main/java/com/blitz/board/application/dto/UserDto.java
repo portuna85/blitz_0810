@@ -13,7 +13,6 @@ import java.io.Serializable;
  */
 public class UserDto {
 
-    /** 회원 Service 요청(Request) DTO 클래스 */
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
@@ -39,7 +38,6 @@ public class UserDto {
 
         private Role role;
 
-        /* DTO -> Entity */
         public User toEntity() {
             User user = User.builder()
                     .id(id)
@@ -70,7 +68,6 @@ public class UserDto {
         private final Role role;
         private final String modifiedDate;
 
-        /* Entity -> dto */
         public Response(User user) {
             this.id = user.getId();
             this.username = user.getUsername();
