@@ -56,7 +56,7 @@ public class UserController {
             return "user/user-join";
         }
         userService.userJoin(dto);
-        return "redirect:/login";
+        return "redirect:/auth/login";
     }
 
     @GetMapping("/auth/login")
