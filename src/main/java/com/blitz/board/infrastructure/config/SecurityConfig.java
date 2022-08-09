@@ -42,13 +42,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      return super.authenticationManagerBean();
     }
 
-    /* 시큐리티가 로그인 과정에서 password를 가로챌때 어떤 해쉬로 암호화 했는지 확인 */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(customUserDetailsService).passwordEncoder(encoder());
     }
 
-    /* static 관련설정은 무시 */
     @Override
     public void configure(WebSecurity web) throws Exception {
         web
