@@ -24,7 +24,7 @@
                     <input type="hidden" id="id" value="{{id}}">
                     <input type="hidden" id="postsId" value="{{postsId}}">
                     <input type="hidden" id="writerUserId" value="{{userId}}">
-                    <input type="hidden" id="sessionUserId" value="{{#user}}{{user.id}}{{/user}}">
+                    <input type="hidden" id="sessionUserId" value="{{#user}}{{.}}{{/user}}">
                     <div class="form-group">
                         <textarea class="form-control" id="comment-content" rows="3">{{comment}}</textarea>
                     </div>
