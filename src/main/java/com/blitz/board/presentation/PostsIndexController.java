@@ -17,6 +17,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Slf4j
@@ -53,9 +55,12 @@ public class PostsIndexController {
     }
 
     @GetMapping("/posts/read/{id}")
-    public String read(@PathVariable Long id, @LoginUser UserDto.Response user, Model model) {
+    public String read(@PathVariable Long id, @LoginUser UserDto.Response user, Model model, HttpServletRequest request) {
         PostsDto.Response dto = postsService.findById(id);
         List<CommentDto.Response> comments = dto.getComments();
+
+        HttpSession session = request.getSession();
+        model.addAttribute("mySession", session.getAttribute("user"));
 
         if (comments != null && !comments.isEmpty()) {
             model.addAttribute("comments", comments);
