@@ -1,0 +1,13 @@
+ {
+    "readyState":4
+ }
+ "responseText":"{\"timestamp\":\"2022-08-09T06:52:22.741+00:00\"
+ \"status\":500
+ \"error\":\"Internal Server Error\"
+ \"path\":\"/api/posts/2/comments\"}"
+ "responseJSON":{"timestamp":"2022-08-09T06:52:22.741+00:00"
+ "status":500
+ "error":"Internal Server Error"
+ "path":"/api/posts/2/comments"}
+ "status":500
+ "statusText":"error"
