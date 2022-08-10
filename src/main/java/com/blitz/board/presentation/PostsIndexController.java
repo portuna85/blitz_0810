@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+
 @Slf4j
 @RequiredArgsConstructor
 @Controller
@@ -78,7 +79,7 @@ public class PostsIndexController {
             }
         }
 
-        postsService.updateView(id);
+        postsService.updateView(id); // views ++
         model.addAttribute("posts", dto);
         return "posts/posts-read";
     }
@@ -96,7 +97,7 @@ public class PostsIndexController {
 
     @GetMapping("/posts/search")
     public String search(String keyword, Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC)
-            Pageable pageable, @LoginUser UserDto.Response user) {
+    Pageable pageable, @LoginUser UserDto.Response user) {
         Page<Posts> searchList = postsService.search(keyword, pageable);
 
         if (user != null) {
@@ -112,4 +113,3 @@ public class PostsIndexController {
         return "posts/posts-search";
     }
 }
-
